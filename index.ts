@@ -34,21 +34,12 @@ player.on("connectionError", function (queue, error) {
 });
 
 // client events
-client.on("ready", function (client) {
-  const guilds = client.guilds.cache.map((guild) => guild.id);
-
-  const rest = new REST({ version: "9" }).setToken(TOKEN);
-  const requests = [];
-  for (const id of guilds) {
-    requests.push(
-      rest
-        .put(Routes.applicationGuildCommands(CLIENT_ID, id), { body: commands })
-        .then(() => console.log(`Added commands to ${id}`))
-        .catch(console.error)
-    );
-  }
-
-  Promise.all(requests).then(() => console.log("Estou on! ✨"));
+client.on("ready", function () {
+  const rest = new REST({ version: "10" }).setToken(TOKEN);
+  rest
+    .put(Routes.applicationCommands(CLIENT_ID), { body: commands })
+    .then(() => console.log("Estou on! ✨"))
+    .catch(console.error);
 });
 
 client.on("interactionCreate", async (interaction) => {
