@@ -1,5 +1,10 @@
 import { Player } from "discord-player";
-import Discord, { REST, RESTPostAPIChatInputApplicationCommandsJSONBody, Routes } from "discord.js";
+import Discord, {
+  ActivityType,
+  REST,
+  RESTPostAPIChatInputApplicationCommandsJSONBody,
+  Routes,
+} from "discord.js";
 import env from "dotenv";
 import fs from "fs";
 
@@ -34,12 +39,14 @@ player.on("connectionError", function (queue, error) {
 });
 
 // client events
-client.on("ready", function () {
+client.on("ready", function (client) {
   const rest = new REST({ version: "10" }).setToken(TOKEN);
   rest
     .put(Routes.applicationCommands(CLIENT_ID), { body: commands })
     .then(() => console.log("Estou on! ✨"))
     .catch(console.error);
+
+  client.user.setActivity("music | /help", { type: ActivityType.Playing });
 });
 
 client.on("interactionCreate", async (interaction) => {

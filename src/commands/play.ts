@@ -18,11 +18,11 @@ const queueOptions: PlayerOptions = {
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("play")
-    .setDescription("Play a song in your channel! ▶")
+    .setDescription("Play a song in your channel! 🎵")
     .addSubcommand((command) =>
       command
         .setName("search")
-        .setDescription("Searchs for a song and play it!")
+        .setDescription("Searchs for a song and play it! 🎵")
         .addStringOption((opt) =>
           opt.setName("query").setDescription("Search keywords").setRequired(true)
         )
@@ -30,7 +30,7 @@ module.exports = {
     .addSubcommand((command) =>
       command
         .setName("playlist")
-        .setDescription("Plays a playlist!")
+        .setDescription("Plays a playlist! 🎵")
         .addStringOption((opt) =>
           opt.setName("url").setDescription("The playlist's url").setRequired(true)
         )
@@ -38,7 +38,7 @@ module.exports = {
     .addSubcommand((command) =>
       command
         .setName("song")
-        .setDescription("Plays a single song!")
+        .setDescription("Plays a single song! 🎵")
         .addStringOption((opt) =>
           opt.setName("url").setDescription("The song's url!").setRequired(true)
         )

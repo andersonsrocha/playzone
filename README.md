@@ -14,6 +14,7 @@
 - [🚀 Technologies](#-technologies)
 - [✨ Features](#-features)
 - [📑 Environment](#-environment)
+- [Commands](#commands)
 - [📦 Install](#-install)
 - [🔨 Build](#-build)
 - [🔗 Links](#-links)
@@ -43,6 +44,22 @@
 TOKEN=your_key
 CLIENT_ID=your_id
 ```
+
+## Commands
+
+📝 All commands available in playzone bot
+
+|      **Name**      |           **Description**            | **Options** |
+| :----------------: | :----------------------------------: | :---------: |
+|     **/exit**      |  Kick the bot from the channel! 🔇   |             |
+|     **/help**      |      Show list of commands! 📋       |             |
+|     **/pause**     |     Pauses the current song! ⏸️      |             |
+| **/play playlist** |         Plays a playlist! 🎵         |   \<url>    |
+|   **/play song**   |       Plays a single song! 🎵        |   \<url>    |
+|  **/play search**  |  Searchs for a song and play it! 🎵  |  \<query>   |
+|     **/queue**     | Show first 10 songs in the queue! 📋 |             |
+|    **/resume**     |     Resumes the current song! 🎵     |             |
+|     **/skip**      |      Skips the current song! ⏭️      |             |
 
 ## 📦 Install
 
