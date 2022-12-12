@@ -24,6 +24,11 @@
 
 📝 Music bot application for discord using node.js + TypeScript, with support from [discord.js](https://discord.js.org) library and [discord-player](https://discord-player.js.org).
 
+- [discord.js](https://discord.js.org/) module that allows you to interact with the Discord API
+- [discord-player](https://discord-player.js.org) library to facilitate music commands using discord.js
+- [@discordjs/opus](https://github.com/discordjs/opus) as the opus library
+- [ffmpeg](https://ffmpeg.org) to encode the stream
+
 ## 🚀 Technologies
 
 - 💡 **TypeScript**
@@ -82,6 +87,7 @@ npm run build
 
 - [Discord js](https://discord.js.org)
 - [Discord Player](https://discord-player.js.org)
+- [Discord js Opus](https://github.com/discordjs/opus)
 - [Github](https://github.com/andersonsrocha)
 - [LinkedIn](https://www.linkedin.com/in/anderson-silva-a40926192)
 
