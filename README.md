@@ -14,7 +14,7 @@
 - [🚀 Technologies](#-technologies)
 - [✨ Features](#-features)
 - [📑 Environment](#-environment)
-- [Commands](#commands)
+- [⌨️ Commands](#️-commands)
 - [📦 Install](#-install)
 - [🔨 Build](#-build)
 - [🔗 Links](#-links)
@@ -45,7 +45,7 @@ TOKEN=your_key
 CLIENT_ID=your_id
 ```
 
-## Commands
+## ⌨️ Commands
 
 📝 All commands available in playzone bot
 
