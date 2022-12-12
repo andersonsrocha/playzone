@@ -1,9 +1,11 @@
 import { Player } from "discord-player";
 import Discord, {
   ActivityType,
+  EmbedBuilder,
   REST,
   RESTPostAPIChatInputApplicationCommandsJSONBody,
   Routes,
+  TextBasedChannel,
 } from "discord.js";
 import env from "dotenv";
 import fs from "fs";
@@ -30,12 +32,32 @@ for (const file of commandFiles) {
 const player = new Player(client);
 
 // player events
-player.on("error", (queue, error) => {
-  console.log(`[${queue.guild.name}] Error emitted from the queue: ${error.message}`);
+player.on("error", ({ metadata }, error) => {
+  (metadata as TextBasedChannel)?.send(`An error has occurred: ${error.message}`);
 });
 
-player.on("connectionError", function (queue, error) {
-  console.log(`[${queue.guild.name}] Error emitted from the connection: ${error.message}`);
+player.on("connectionError", function ({ metadata }, error) {
+  (metadata as TextBasedChannel)?.send(`An error has occurred: ${error.message}`);
+});
+
+player.on("trackStart", ({ metadata }, track) => {
+  const embed = new EmbedBuilder()
+    .setDescription(`**[${track.title}](${track.url})** is playing now.`)
+    .setThumbnail(track.thumbnail)
+    .setFooter({ text: `Duration: ${track.duration}` });
+  (metadata as TextBasedChannel)?.send({ embeds: [embed] });
+});
+
+player.on("botDisconnect", ({ metadata }) => {
+  (metadata as TextBasedChannel)?.send("They sent me away, I'm going... 🥲");
+});
+
+player.on("channelEmpty", ({ metadata }) => {
+  (metadata as TextBasedChannel)?.send("Everyone left the voice channel, I'm leaving... 🙃");
+});
+
+player.on("queueEnd", ({ metadata }) => {
+  (metadata as TextBasedChannel)?.send("I finished all the songs, shall we add more? 😎");
 });
 
 // client events

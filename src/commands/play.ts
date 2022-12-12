@@ -53,7 +53,8 @@ module.exports = {
 
     await interaction.deferReply({ ephemeral: true });
 
-    const queue = player.createQueue(interaction.guild!, queueOptions);
+    const channel = interaction.channel;
+    const queue = player.createQueue(interaction.guild!, { ...queueOptions, metadata: channel });
 
     if (!queue.connection) await queue.connect(interaction.member.voice.channel);
 
