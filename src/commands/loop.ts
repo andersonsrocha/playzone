@@ -20,12 +20,12 @@ module.exports = {
     }
 
     let message = "";
-    if (interaction.options.getSubcommand() === "off") {
-      queue.setRepeatMode(QueueRepeatMode.OFF);
-      message = "Repeat mode off. 🚫";
-    } else if (interaction.options.getSubcommand() === "song") {
+    if (!interaction.options || interaction.options.getSubcommand() === "song") {
       queue.setRepeatMode(QueueRepeatMode.TRACK);
       message = "Current song is on repeat mode. 🔂";
+    } else if (interaction.options.getSubcommand() === "off") {
+      queue.setRepeatMode(QueueRepeatMode.OFF);
+      message = "Repeat mode off. 🚫";
     } else if (interaction.options.getSubcommand() === "queue") {
       queue.setRepeatMode(QueueRepeatMode.QUEUE);
       message = "Current queue is in retry mode. 🔁";
