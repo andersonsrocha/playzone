@@ -4,13 +4,18 @@
 
 <div align="center">
 
+Music bot application for discord using node.js + TypeScript, with support from [discord.js](https://discord.js.org) library and [discord-player](https://discord-player.js.org).
+
 ![](https://img.shields.io/badge/release-v1.0.0-52a49a)
 ![](https://img.shields.io/badge/yarn-%3E%3D%208.19.1-blue)
 ![](https://img.shields.io/badge/node-%3E%3D%2018.9.0-green)
 
+[discord.js](https://discord.js.org/) · [discord-player](https://discord-player.js.org) · [@discordjs/opus](https://github.com/discordjs/opus) · [ffmpeg](https://ffmpeg.org)
+
 </div>
 
-- [📄 About](#-about)
+<h2>🗒️ Index</h2>
+
 - [🚀 Technologies](#-technologies)
 - [✨ Features](#-features)
 - [📑 Environment](#-environment)
@@ -20,26 +25,17 @@
 - [🔗 Links](#-links)
 - [📝 License](#-license)
 
-## 📄 About
-
-📝 Music bot application for discord using node.js + TypeScript, with support from [discord.js](https://discord.js.org) library and [discord-player](https://discord-player.js.org).
-
-- [discord.js](https://discord.js.org/) module that allows you to interact with the Discord API
-- [discord-player](https://discord-player.js.org) library to facilitate music commands using discord.js
-- [@discordjs/opus](https://github.com/discordjs/opus) as the opus library
-- [ffmpeg](https://ffmpeg.org) to encode the stream
-
 ## 🚀 Technologies
 
-- 💡 **TypeScript**
-- 🤖 **discord.js**
-- 🔊 **discord-player**
+- 💡 TypeScript
+- 🤖 discord.js
+- 🔊 discord-player
 
 ## ✨ Features
 
-- 🔥 **Play music from YouTube**
-- 🎵 **Play music from Spotify**
-- 🎧 **Play music from SoundCloud**
+- 🔥 Play music from YouTube
+- 🎵 Play music from Spotify
+- 🎧 Play music from SoundCloud
 
 ## 📑 Environment
 
