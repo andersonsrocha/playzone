@@ -6,6 +6,11 @@ import Discord, {
   RESTPostAPIChatInputApplicationCommandsJSONBody,
   Routes,
   TextBasedChannel,
+  MessageActionRowComponentBuilder,
+  ActionRowBuilder,
+  ButtonBuilder,
+  ButtonStyle,
+  Emoji,
 } from "discord.js";
 import env from "dotenv";
 import fs from "fs";
@@ -45,7 +50,35 @@ player.on("trackStart", ({ metadata }, track) => {
     .setDescription(`**[${track.title}](${track.url})** is playing now.`)
     .setThumbnail(track.thumbnail)
     .setFooter({ text: `Duration: ${track.duration}` });
-  (metadata as TextBasedChannel)?.send({ embeds: [embed] });
+  const row = new ActionRowBuilder<ButtonBuilder>().addComponents(
+    new ButtonBuilder()
+      .setCustomId("prev")
+      .setLabel("Prev")
+      .setEmoji("⏮️")
+      .setStyle(ButtonStyle.Secondary),
+    new ButtonBuilder()
+      .setCustomId("loop")
+      .setLabel("Loop")
+      .setEmoji("🔂")
+      .setStyle(ButtonStyle.Primary),
+    new ButtonBuilder()
+      .setCustomId("resume")
+      .setLabel("Play")
+      .setEmoji("▶️")
+      .setStyle(ButtonStyle.Success),
+    new ButtonBuilder()
+      .setCustomId("pause")
+      .setLabel("Pause")
+      .setEmoji("⏸️")
+      .setStyle(ButtonStyle.Primary),
+    new ButtonBuilder()
+      .setCustomId("skip")
+      .setLabel("Next")
+      .setEmoji("⏭️")
+      .setStyle(ButtonStyle.Secondary)
+  );
+
+  (metadata as TextBasedChannel)?.send({ embeds: [embed], components: [row] });
 });
 
 player.on("botDisconnect", ({ metadata }) => {
@@ -72,9 +105,10 @@ client.on("ready", function (client) {
 });
 
 client.on("interactionCreate", async (interaction) => {
-  if (!interaction.isCommand()) return;
+  if (!(interaction.isCommand() || interaction.isButton())) return;
 
-  const command = client.commands.get(interaction.commandName);
+  const commandName = interaction.isCommand() ? interaction.commandName : interaction.customId;
+  const command = client.commands.get(commandName);
   if (!command) return;
 
   try {

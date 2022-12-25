@@ -6,9 +6,7 @@ export class Client extends BaseClient {
   public commands: Collection<unknown, COMMAND>;
 
   constructor() {
-    super({
-      intents: ["Guilds", "GuildMessages", "MessageContent", "GuildVoiceStates"],
-    });
+    super({ intents: ["Guilds", "GuildMessages", "MessageContent", "GuildVoiceStates"] });
 
     this.commands = new Collection();
   }

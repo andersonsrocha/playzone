@@ -7,6 +7,7 @@ import {
 } from "discord.js";
 
 const queueOptions: PlayerOptions = {
+  leaveOnEndCooldown: 900000,
   ytdlOptions: {
     quality: "highest",
     filter: "audioonly",
